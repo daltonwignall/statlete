@@ -1,5 +1,5 @@
 {
-  "name": "stathlete",
+  "name": "statlete",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,7 +27,9 @@
     ]
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "eslint": "^6.0.1",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.2",
+    "node-sass": "^4.12.0"
   }
 }
