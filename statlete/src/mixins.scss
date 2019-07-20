@@ -1,11 +1,18 @@
 /* Colors */
-$black: #0B0C10;
+$black: #000;
+$grey-dark: #0B0C10;
 $navy-dark: #1F2833;
 $grey-light: #C5C6C7;
 $aqua-light: #66FCF1;
 $aqua-dark: #45A29E;
+$white: #FFF;
 
-/* Spacing */
-$space-s: 8px;
-$space-m: 16px;
-$space-l: 24px;
+/* Sizing for spacing and fonts */
+$size-xs: 8px;
+$size-s: 16px;
+$size-m: 24px;
+$size-l: 32px;
+$size-xl: 48px;
+
+/* Standard border-radius values */
+$button-radius: 2px;

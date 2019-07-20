@@ -1,0 +1,29 @@
+@import "../../mixins.scss";
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: $button-radius;
+  padding: $size-xs $size-s;
+  font-size: $size-s;
+  color: $black;
+  text-align: center;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+
+  &--solid {
+    background: $aqua-light;
+  }
+
+  &--outline {
+    border: 2px solid $aqua-light;
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $aqua-light;
+      color: $black;
+    }
+  }
+}

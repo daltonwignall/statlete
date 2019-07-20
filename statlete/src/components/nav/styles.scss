@@ -3,17 +3,70 @@
 .nav {
   background-color: $navy-dark;
   height: 100%;
-  width: 300px;
+  width: 250px;
   color: white;
 
   &__title {
-    color: $aqua-light;
-    font-weight: 300;
+    display: flex;
+    align-items: center;
+    padding: $size-s;
+    justify-content: center;
+    
+    &__icon {
+      color: $aqua-light;
+      font-size: $size-l;
+      margin-right: $size-xs;
+    }
+
+    &__text {
+      color: $aqua-light;
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+
+  &__add {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $aqua-dark;
+    border-bottom: 1px solid $aqua-dark;
+    padding: $size-s 0;
+
+    &__button {
+      width: 150px;
+
+      &__icon {
+        margin-left: $size-xs/2;
+      }
+    }
+  }
+
+  &__items {
+    padding-left: 0;
     margin-top: 0;
-    margin-left: $space-s;
   }
 
   &__item {
+    font-size: 20px;
+    font-weight: 300;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-left: $size-xs solid $aqua-dark;
+    padding-left: $size-xs;
+    height: 60px;
 
+    &__image {
+      width: $size-xl;
+      height: $size-xl;
+      border-radius: $size-xl;
+      border: 2px solid $white;
+      margin-right: $size-xs;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $aqua-dark;
+    }
   }
 }
