@@ -3,11 +3,16 @@ import "./app.scss";
 import { Nav } from "../components";
 
 const App = () => {
-
+  const sampleAthletes = [
+    { title: "Ben Simmons", imagePath: "" },
+    { title: "Anthony Davis", imagePath: "" },
+    { title: "Draymond Green", imagePath: "" },
+    { title: "Lebron James", imagePath: "" },
+  ];
 
   return (
     <div className="app">
-      <Nav />
+      <Nav navItems={sampleAthletes} />
     </div>
   );
 };

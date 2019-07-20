@@ -1,3 +1,19 @@
+@import "../../mixins.scss";
+
 .nav {
-    background-color: #282c34;
+  background-color: $navy-dark;
+  height: 100%;
+  width: 300px;
+  color: white;
+
+  &__title {
+    color: $aqua-light;
+    font-weight: 300;
+    margin-top: 0;
+    margin-left: $space-s;
+  }
+
+  &__item {
+
+  }
 }
