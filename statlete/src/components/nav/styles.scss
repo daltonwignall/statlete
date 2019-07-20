@@ -4,6 +4,7 @@
   background-color: $navy-dark;
   height: 100%;
   width: 250px;
+  overflow: auto;
   color: white;
 
   &__title {
@@ -62,6 +63,10 @@
       border-radius: $size-xl;
       border: 2px solid $white;
       margin-right: $size-xs;
+    }
+
+    &__title {
+      color: white;
     }
 
     &:hover {
