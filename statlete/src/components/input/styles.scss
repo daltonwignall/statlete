@@ -4,4 +4,9 @@
   border-radius: $border-radius;
   border: 1px solid #989898;
   padding: $size-xs $size-xs;
+
+  &:disabled {
+    background-color: $disabled;
+    border-color: $disabled;
+  }
 }

@@ -11,6 +11,17 @@
   border: 0;
   font-family: 'Roboto', sans-serif;
 
+  &:disabled {
+    background-color: $disabled;
+    color: grey;
+    border-color: $disabled;
+
+    &:hover {
+      background-color: $disabled;
+      color: grey;
+    }
+  }
+
   &--solid {
     background: $aqua-light;
 
