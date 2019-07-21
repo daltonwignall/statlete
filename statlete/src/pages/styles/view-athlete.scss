@@ -1,0 +1,40 @@
+@import "../../styles/mixins.scss";
+
+.view-athlete {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: $size-s;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+}
+
+.row:last-child {
+  margin-top: $size-s;
+}
+
+.player-stats-container {
+  flex: 2;
+}
+
+.team-stats-container {
+  flex: 1;
+  margin-left: $size-s;
+}
+
+.about-container {
+  flex: 2;
+}
+
+.social-container {
+  flex: 1;
+  margin-left: $size-s;
+}
+
+.header-icon {
+  font-size: $size-m;
+  color: $navy-dark;
+}

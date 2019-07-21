@@ -3,12 +3,16 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./styles.scss";
 
-const DataContainer = ({ className, children, subTitle, title }) => {
+const DataContainer = ({ className, children, subTitle, title, leftHeaderContent, rightHeaderContent }) => {
   const classes = classNames("data-container", className);
 
   return (
     <div className={classes}>
-      <h2>{title} - {subTitle}</h2>
+      <div className="data-container__header">
+        {leftHeaderContent}
+          <h3 className="data-container__header__title">{title} - {subTitle}</h3>
+        {rightHeaderContent}
+      </div>
       {children}
     </div>
   );
@@ -17,6 +21,8 @@ const DataContainer = ({ className, children, subTitle, title }) => {
 DataContainer.propTypes = {
   className: PropTypes.string,
   children: PropTypes.element,
+  leftHeaderContent: PropTypes.element,
+  rightHeaderContent: PropTypes.element,
   subTitle: PropTypes.string,
   title: PropTypes.string
 };
