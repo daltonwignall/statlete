@@ -2,4 +2,6 @@ Validation capabablities on input component
 absolute paths within .scss files
 Local storage for basic application state
 Better mobile responsiveness
+Better graph responsiveness
 Integrate login system for user specific configuration and storing data permanently
+Disable stat arrows when the first/last item is showing for the left and right arrows respectively

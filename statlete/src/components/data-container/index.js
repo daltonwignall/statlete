@@ -13,7 +13,9 @@ const DataContainer = ({ className, children, subTitle, title, leftHeaderContent
           <h3 className="data-container__header__title">{title} - {subTitle}</h3>
         {rightHeaderContent}
       </div>
-      {children}
+      <div className="data-container__body">
+        {children}
+      </div>
     </div>
   );
 };

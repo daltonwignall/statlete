@@ -18,11 +18,19 @@
 
 .player-stats-container {
   flex: 2;
+
+  .data-container__body {
+    padding: $size-xs;
+  }
 }
 
 .team-stats-container {
   flex: 1;
   margin-left: $size-s;
+
+  .data-container__body {
+    padding: $size-xs;
+  }
 }
 
 .about-container {
@@ -32,6 +40,10 @@
 .social-container {
   flex: 1;
   margin-left: $size-s;
+
+  .data-container__body {
+    height: 90%;
+  }
 }
 
 .header-icon {

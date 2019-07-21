@@ -25,3 +25,8 @@ body {
 .center {
   margin: 0 auto;
 }
+
+.highcharts-container, .highcharts-root {
+  width: 100%;
+  height: 100%;
+}

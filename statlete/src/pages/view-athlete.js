@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { FaChartBar, FaBook, FaChartPie, FaTwitter } from "react-icons/fa";
+import ReactHighcharts from "react-highcharts";
 import { DataContainer, StatArrows } from "../components";
+import { playTimeScatterConfig, winsLossesPieConfig,
+  seasonAveragesBarConfig, gameTimeHistogramConfig } from "../helpers/graphs";
 import "./styles/view-athlete.scss";
 
 class ViewAthletePage extends Component {
@@ -28,9 +31,8 @@ class ViewAthletePage extends Component {
 
   getPlayerStatsGraph(index) {
     const graphs = [
-      "player graph 1",
-      "player graph 2",
-      "player graph 3"
+      <ReactHighcharts config={seasonAveragesBarConfig} />,
+      <ReactHighcharts config={playTimeScatterConfig} />
     ];
 
     return graphs[index];
@@ -38,9 +40,8 @@ class ViewAthletePage extends Component {
 
   getTeamStatsGraph(index) {
     const graphs = [
-      "team graph 1",
-      "team graph 2",
-      "team graph 3"
+      <ReactHighcharts config={winsLossesPieConfig} />,
+      <ReactHighcharts config={gameTimeHistogramConfig} />
     ];
 
     return graphs[index];
@@ -56,7 +57,7 @@ class ViewAthletePage extends Component {
           <DataContainer
             className="player-stats-container"
             leftHeaderContent={<FaChartBar className="header-icon"/>}
-            rightHeaderContent={<StatArrows onClick={this.updatePlayerStatsIndex} statsLength={3} currentIndex={playerStatsIndex}/>}
+            rightHeaderContent={<StatArrows onClick={this.updatePlayerStatsIndex} statsLength={2} currentIndex={playerStatsIndex}/>}
             title={playerName}
             subTitle="Stat"
           >
@@ -65,7 +66,7 @@ class ViewAthletePage extends Component {
           <DataContainer
             className="team-stats-container"
             leftHeaderContent={<FaChartPie className="header-icon"/>}
-            rightHeaderContent={<StatArrows onClick={this.updateTeamStatsIndex} statsLength={3} currentIndex={teamStatsIndex}/>}
+            rightHeaderContent={<StatArrows onClick={this.updateTeamStatsIndex} statsLength={2} currentIndex={teamStatsIndex}/>}
             title="Team Name"
             subTitle="Stat"
           >
@@ -88,7 +89,7 @@ class ViewAthletePage extends Component {
           >
             <TwitterTimelineEmbed
               sourceType="profile"
-              screenName="NBA"
+              screenName="nba"
               autoHeight
             />
           </DataContainer>
