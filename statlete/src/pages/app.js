@@ -1,5 +1,5 @@
 import React from "react";
-import "./app.scss";
+import "./styles/app.scss";
 import Routes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Nav } from "../components";
