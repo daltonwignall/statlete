@@ -1,0 +1,23 @@
+@import "../../styles/mixins";
+
+.stat-arrows {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__icon {
+    font-size: $size-l/1.25;
+    color: $navy-dark;
+
+    &:hover {
+      cursor: pointer;
+      color: $aqua-light;
+    }
+  }
+
+  &__text {
+    font-size: $size-s;
+    color: $white;
+  }
+}

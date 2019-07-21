@@ -1,0 +1,5 @@
+Validation capabablities on input component
+absolute paths within .scss files
+Local storage for basic application state
+Better mobile responsiveness
+Integrate login system for user specific configuration and storing data permanently

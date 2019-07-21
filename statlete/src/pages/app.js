@@ -3,7 +3,7 @@ import "./styles/app.scss";
 import Routes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Nav } from "../components";
-import { getKnowledgeGraphData } from "../helpers/api-requests";
+import { getKnowledgeGraphData, getNBAPlayer, getNBAPlayerStats } from "../helpers/api-requests";
 
 const App = () => {
   const sampleAthletes = [
@@ -13,7 +13,9 @@ const App = () => {
     { title: "Lebron James", imagePath: "" },
   ];
 
-  getKnowledgeGraphData("Joel Embiid");
+  getKnowledgeGraphData("Lebron James");
+  getNBAPlayer("Lebron James")
+  getNBAPlayerStats("237");
 
   return (
     <div className="app">
