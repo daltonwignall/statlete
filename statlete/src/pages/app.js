@@ -14,7 +14,7 @@ const App = () => {
   ];
 
   getKnowledgeGraphData("Lebron James");
-  getNBAPlayer("Lebron James")
+  getNBAPlayer("Lebron James");
   getNBAPlayerStats("237");
 
   return (

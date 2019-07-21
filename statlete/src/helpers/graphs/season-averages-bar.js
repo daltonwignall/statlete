@@ -3,18 +3,13 @@ export const seasonAveragesBarConfig = {
     enabled: false
   },
   chart: {
-      type: 'bar',
+      type: "bar",
   },
   title: {
       text: null,
   },
   xAxis: {
-     categories: ['Steals', 'Assists', 'Points', 'Rebounds'],
-     labels: {
-      style: {
-        fontSize: "14px",
-      },
-    },
+    visible: false,
   },
   yAxis: {
     labels: {
@@ -23,29 +18,43 @@ export const seasonAveragesBarConfig = {
       },
     },
     title: {
-      text: 'Amount',
+      text: "Amount",
       style: {
         fontSize: "14px"
       }
     },
+  },
+  tooltip: {
+    headerFormat: "<b>{series.name}</b><br>",
+    pointFormat: "{point.y}"
   },
   plotOptions: {
     bar: {
       shadow: false,
       pointPadding: 0.01,
       groupPadding: 0.05
-    }
+    },
    },
   series: [
-      {
-          showInLegend: false,
-          data: [
-              { y: 6, color: "#00AECA"},
-              { y: 14, color: "#66FCF1"},
-              { y: 20, color: "#1F2833"},
-              { y: 11, color: "#45A29E"},
-          ]
-      },
-      
+    {
+      name: "Steals",
+      data: [6],
+      color: "#00AECA"
+    },
+    {
+      name: "Assists",
+      data: [14],
+      color: "#66FCF1"
+    },
+    {
+      name: "Points",
+      data: [20],
+      color: "#1F2833"
+    },
+    {
+      name: "Rebounds",
+      data: [11],
+      color: "#45A29E"
+    }
   ],
 };

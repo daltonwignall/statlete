@@ -3,15 +3,21 @@ export const gameTimeHistogramConfig = {
     enabled: false
   },
   chart: {
-    type: 'column'
+    type: "column"
   },
   title: {
     text: null
   },
   subtitle: {
-    text: ''
+    text: ""
   },
   xAxis: {
+    title: {
+      text: "Time",
+      style: {
+        fontSize: "14px",
+      },
+    },
     categories: [
       "3:00 PM",
       "7:00 PM",
@@ -29,7 +35,12 @@ export const gameTimeHistogramConfig = {
   },
   yAxis: {
     min: 0,
-
+    title: {
+      text: "Amount",
+      style: {
+        fontSize: "14px",
+      },
+    },
     labels: {
       style: {
         color: "#333",
@@ -51,7 +62,8 @@ export const gameTimeHistogramConfig = {
     }
 	},
   series: [{
-    name: 'Times',
+    name: "Amount",
+    showInLegend: false,
     data: [10, 20, 12, 3, 15],
 		color: "#66FCF1",
     backgroundColor: "transparent"

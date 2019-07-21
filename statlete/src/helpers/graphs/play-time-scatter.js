@@ -1,7 +1,7 @@
 export const playTimeScatterConfig = {
  chart: {
-   type: 'scatter',
-   zoomType: 'xy'
+   type: "scatter",
+   zoomType: "xy"
  },
  title: {
    text: null,
@@ -9,7 +9,7 @@ export const playTimeScatterConfig = {
  xAxis: {
    title: {
      enabled: true,
-     text: 'Date',
+     text: "Date",
      style: {
       fontSize: "14px"
      }
@@ -25,7 +25,7 @@ export const playTimeScatterConfig = {
  },
  yAxis: {
    title: {
-     text: 'Playing Time (Minutes)',
+     text: "Playing Time (Minutes)",
      style: {
       fontSize: "14px"
      }
@@ -43,7 +43,7 @@ export const playTimeScatterConfig = {
        states: {
          hover: {
            enabled: true,
-           lineColor: 'rgb(100,100,100)'
+           lineColor: "rgb(100,100,100)"
          }
        }
      },
@@ -55,15 +55,15 @@ export const playTimeScatterConfig = {
        }
      },
      tooltip: {
-       headerFormat: '<b>{series.name}</b><br>',
-       pointFormat: '{point.x}: {point.y} minutes'
+       headerFormat: "<b>{series.name}</b><br>",
+       pointFormat: "{point.x}: {point.y} minutes"
      }
    }
  },
  series: [{
    showInLegend: false,
-   name: 'Playing Time',
-   color: '#66FCF1',
+   name: "Playing Time",
+   color: "#66FCF1",
    data: [["9/12/2018",38], ["9/15/2018", 45], ["9/17/2018", 20], ["9/19/2018", 42], ["9/22/2018", 39]],
  }]
 };

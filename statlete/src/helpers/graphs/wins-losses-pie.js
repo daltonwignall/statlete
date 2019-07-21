@@ -6,21 +6,21 @@ export const winsLossesPieConfig = {
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false,
-      type: 'pie'
+      type: "pie"
   },
   title: {
       text: null,
   },
   tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
   },
   plotOptions: {
       pie: {
           allowPointSelect: true,
-          cursor: 'pointer',
+          cursor: "pointer",
           dataLabels: {
               enabled: true,
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+              format: "<b>{point.name}</b>: {point.percentage:.1f} %",
               style: {
                 fontSize: "14px",
               },
@@ -28,16 +28,16 @@ export const winsLossesPieConfig = {
       }
   },
   series: [{
-      name: 'Total',
+      name: "Total",
       colorByPoint: true,
       data: [{
-          name: 'Wins',
+          name: "Wins",
           y: 40,
           sliced: true,
           selected: true,
           color: "#66FCF1"
       }, {
-          name: 'Losses',
+          name: "Losses",
           y: 22,
           color: "#CCC"
       },
