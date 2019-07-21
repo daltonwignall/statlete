@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import NavItem from "./nav-item";
 import Button from "../button";
 import { FaChartLine, FaPlus } from "react-icons/fa";

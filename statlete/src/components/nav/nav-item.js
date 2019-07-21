@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "react-router-dom/es/Link";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 const NavItem = ({ title, imagePath }) => (

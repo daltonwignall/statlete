@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FaSearch, FaExclamationCircle } from "react-icons/fa";
 import { Input, Button } from "../components";
 import "./styles/add-athlete.scss";
@@ -29,12 +28,5 @@ const AddAthletePage = () => {
     </div>
   );
 };
-
-AddAthletePage.defaultProps = {
-};
-
-AddAthletePage.propTypes = {
-};
-
 
 export default AddAthletePage;

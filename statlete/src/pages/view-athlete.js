@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { DataContainer } from "../components";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { FaChartBar, FaBook, FaChartPie, FaTwitter } from "react-icons/fa";
+import { DataContainer } from "../components";
 import "./styles/view-athlete.scss";
 
 const ViewAthletePage = ({ playerName }) => {
@@ -37,6 +38,11 @@ const ViewAthletePage = ({ playerName }) => {
           title={playerName}
           subTitle="Twitter"
         >
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="kingjames"
+            autoHeight
+          />
         </DataContainer>
       </div>
     </div>
