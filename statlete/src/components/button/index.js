@@ -12,7 +12,7 @@ const Button = ({ className, children, text, variant, ...otherProps }) => {
       {...otherProps}
     > 
       <React.Fragment>
-        <span>{text}</span>
+        {text && <span>{text}</span>}
         {children}
       </React.Fragment>
     </button>
@@ -29,7 +29,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  text: "Submit",
+  text: "",
   type: "button",
   variant: "solid",
 };

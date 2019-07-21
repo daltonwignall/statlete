@@ -49,6 +49,6 @@ ViewAthletePage.defaultProps = {
 
 ViewAthletePage.propTypes = {
   playerName: PropTypes.string
-}
+};
 
 export default ViewAthletePage;

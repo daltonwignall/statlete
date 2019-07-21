@@ -3,16 +3,21 @@
 .button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  border-radius: $button-radius;
+  border-radius: $border-radius;
   padding: $size-xs $size-s;
   font-size: $size-s;
   color: $black;
   text-align: center;
-  border: none;
+  border: 0;
   font-family: 'Roboto', sans-serif;
 
   &--solid {
     background: $aqua-light;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $aqua-dark;
+    }
   }
 
   &--outline {

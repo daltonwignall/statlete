@@ -1,0 +1,7 @@
+@import "../../styles/mixins.scss";
+
+.input {
+  border-radius: $border-radius;
+  border: 1px solid #989898;
+  padding: $size-xs $size-xs;
+}

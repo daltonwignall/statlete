@@ -1,0 +1,58 @@
+@import "../../styles/mixins.scss";
+
+.add-athlete {
+  display: flex;
+  flex: 1;
+  padding: $size-s;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 1000px;
+  padding: $size-s;
+  margin-bottom: 5%;
+  background-color: $white;
+  border-left: $size-xs solid $blue-light;
+  border-right: $size-xs solid $blue-light;
+
+  &__title {
+    font-weight: 300;
+  }
+
+  &__search {
+    display: flex;
+
+    &__input {
+      height: $size-xl;
+      width: 500px;
+      font-size: $size-l;
+    }
+
+    &__button{
+      height: $size-xl;
+      margin-left: $size-xs/2;
+    }
+  }
+
+  .disclaimer {
+    display: flex;
+    align-items: center;
+    margin-top: $size-s;
+    font-style: italic;
+    color: grey;
+  }
+
+  .search-icon {
+    font-size: $size-m;
+  }
+
+  .exclamation-icon {
+    font-size: $size-m;
+    margin-right: $size-xs;
+    color: $warning;
+  }
+}
