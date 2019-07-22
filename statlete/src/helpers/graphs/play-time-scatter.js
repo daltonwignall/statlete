@@ -67,7 +67,13 @@ export const playTimeScatterConfig = {
      }
    }
  },
- series: [{
+ series: [
+  {
+    type: "line",
+    name: "Regression Line",
+    data: [[1, 36], [5, 36]],
+  },
+  {
    showInLegend: false,
    name: "Playing Time",
    color: "#66FCF1",
