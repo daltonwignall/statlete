@@ -53,7 +53,6 @@ class AddAthletePage extends Component {
 
   renderResults() {
     const athlete = this.state.foundAthlete;
-    console.log(athlete);
 
     if (athlete) {
       const name = `${athlete.first_name} ${athlete.last_name}`;
