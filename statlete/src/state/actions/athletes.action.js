@@ -21,7 +21,6 @@ export const addAthlete = (athlete) => {
       const personInfo = returnedPerson ? returnedPerson.result : {};
   
       dispatch({ type: ADD_ATHLETE_GENERAL, payload: personInfo });
-      console.log(personInfo);
     })
     .catch(function (error) {
       console.log(error);
@@ -30,7 +29,6 @@ export const addAthlete = (athlete) => {
     // Get stats specific to the athlete
     getNBAPlayerStats(playerID).then((response) => {
       dispatch({ type: ADD_ATHLETE_STATS, payload: response.data });
-      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);
