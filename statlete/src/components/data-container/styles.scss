@@ -1,6 +1,8 @@
 @import "../../styles/mixins.scss";
 
 .data-container {
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   min-height: 300px;
   background-color: $white;

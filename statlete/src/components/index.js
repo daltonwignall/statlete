@@ -9,3 +9,4 @@ export { default as Input } from "./input";
 export { default as Nav } from "./nav";
 export { default as Spinner } from "./spinner";
 export { default as StatArrows } from "./stat-arrows";
+export { default as Bio } from "./bio";

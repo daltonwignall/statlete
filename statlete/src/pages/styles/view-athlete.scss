@@ -35,6 +35,11 @@
 
 .about-container {
   flex: 2;
+
+  .data-container__body {
+    display: flex;
+    flex: 1;
+  }
 }
 
 .social-container {

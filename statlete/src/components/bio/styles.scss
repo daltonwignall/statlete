@@ -1,0 +1,33 @@
+@import "../../styles/mixins";
+
+.bio {
+  display: flex;
+
+  &__image {
+    height: 250px;
+    border-bottom: 8px solid #CCC;
+  }
+
+  &__info {
+    flex: 1;
+    padding: $size-xs;
+
+    &__name, &__position, &__stature {
+      font-weight: 300;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    border-left: 2px solid #CCC;
+
+    &__icon {
+      color: $navy-dark;
+      font-size: $size-l;
+      margin-bottom: $size-xs;
+    }
+    padding: $size-xs;
+  }
+}

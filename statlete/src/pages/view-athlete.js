@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { FaChartBar, FaBook, FaChartPie, FaTwitter } from "react-icons/fa";
 import ReactHighcharts from "react-highcharts";
-import { DataContainer, StatArrows } from "../components";
+import { DataContainer, StatArrows, Bio } from "../components";
 import { playTimeScatterConfig, winsLossesPieConfig,
   seasonAveragesBarConfig, gameTimeHistogramConfig } from "../helpers/graphs";
 import "./styles/view-athlete.scss";
@@ -31,8 +31,8 @@ class ViewAthletePage extends Component {
 
   getPlayerStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts config={seasonAveragesBarConfig} />,
-      <ReactHighcharts config={playTimeScatterConfig} />
+      <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig} />,
+      <ReactHighcharts key="play-time" config={playTimeScatterConfig} />
     ];
 
     return graphs[index];
@@ -40,8 +40,8 @@ class ViewAthletePage extends Component {
 
   getTeamStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts config={winsLossesPieConfig} />,
-      <ReactHighcharts config={gameTimeHistogramConfig} />
+      <ReactHighcharts key="wins-losses" config={winsLossesPieConfig} />,
+      <ReactHighcharts key="game-time" config={gameTimeHistogramConfig} />
     ];
 
     return graphs[index];
@@ -80,6 +80,7 @@ class ViewAthletePage extends Component {
             title={playerName}
             subTitle="Bio"
           >
+            <Bio></Bio>
           </DataContainer>
           <DataContainer
             className="social-container"
