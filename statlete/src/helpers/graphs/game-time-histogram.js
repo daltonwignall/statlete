@@ -3,7 +3,10 @@ export const gameTimeHistogramConfig = {
     enabled: false
   },
   chart: {
-    type: "column"
+    type: "column",
+    style: {
+      fontFamily: "Roboto"
+    }
   },
   title: {
     text: null

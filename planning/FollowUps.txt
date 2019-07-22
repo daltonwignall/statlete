@@ -7,3 +7,4 @@ Make search trigger on enter keypress also
 Return more than one match if an NBA player has the same name, then let the user decide which ones they want to add
 Integrate login system for user specific configuration and storing data permanently
 Disable stat arrows when the first/last item is showing for the left and right arrows respectively
+It would be nice to get this deployed somewhere

@@ -1,7 +1,13 @@
 export const playTimeScatterConfig = {
- chart: {
+  credits: {
+    enabled: false
+  },
+  chart: {
    type: "scatter",
-   zoomType: "xy"
+   zoomType: "xy",
+   style: {
+    fontFamily: "Roboto"
+  }
  },
  title: {
    text: null,

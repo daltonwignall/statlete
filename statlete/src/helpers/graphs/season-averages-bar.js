@@ -4,6 +4,9 @@ export const seasonAveragesBarConfig = {
   },
   chart: {
       type: "bar",
+      style: {
+        fontFamily: "Roboto"
+      }
   },
   title: {
       text: null,

@@ -6,7 +6,10 @@ export const winsLossesPieConfig = {
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false,
-      type: "pie"
+      type: "pie",
+      style: {
+        fontFamily: "Roboto"
+      }
   },
   title: {
       text: null,
