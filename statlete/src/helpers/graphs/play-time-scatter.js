@@ -9,7 +9,7 @@ export const playTimeScatterConfig = {
  xAxis: {
    title: {
      enabled: true,
-     text: "Date",
+     text: "Game #",
      style: {
       fontSize: "14px"
      }
@@ -19,6 +19,7 @@ export const playTimeScatterConfig = {
      fontSize: "14px",
     },
    },
+   tickInterval: 1,
    startOnTick: true,
    endOnTick: true,
    showLastLabel: true
@@ -64,6 +65,6 @@ export const playTimeScatterConfig = {
    showInLegend: false,
    name: "Playing Time",
    color: "#66FCF1",
-   data: [["9/12/2018",38], ["9/15/2018", 45], ["9/17/2018", 20], ["9/19/2018", 42], ["9/22/2018", 39]],
+   data: [[1,38], [2, 45], [3, 20], [4, 42], [5, 39]],
  }]
 };

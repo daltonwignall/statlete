@@ -27,15 +27,16 @@ export const getKnowledgeGraphData = (fullName) => {
   });
 };
 
-export const getNBAPlayer = (fullName) => {
+export const getNBAPlayer = (fullName, onFinish) => {
   axios.get(`${nbaAPIEndpoint}/players`, {
     params: {
       search: fullName,
-      limit: 1
+      limit: 3
     }
   })
   .then(function (response) {
-    console.log(response.data);
+    const athlete = response.data.data[0];
+    onFinish(athlete);
   })
   .catch(function (error) {
     console.log(error);
