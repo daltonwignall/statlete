@@ -1,6 +1,7 @@
 Validation capabablities on input component
 absolute paths within .scss files
 Local storage for basic application state
+The twitter feed is just for the NBA's right now, I would like to make it per player. Unfortunately I have to pull their twitter username based on full name to do that. I have to route this through node, which I don't have time for right now :(
 Better mobile responsiveness
 Better graph responsiveness
 Make search trigger on enter keypress also
