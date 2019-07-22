@@ -2,31 +2,13 @@ import axios from "axios";
 
 /*
   If I had more time I would definitely figure out a more secure way to store
-  these API keys, even though technically they are just for publicly available APIs
+  these API keys. They are for publicly available APIs through my personal account.
 */
 const googleAPIKey = "AIzaSyC4jtfY_oUqaeVcM9QXz4nZxpTt_iMkKck";
-
 const nbaAPIEndpoint = "https://www.balldontlie.io/api/v1/";
 
-export const getKnowledgeGraphData = (fullName) => {
-  axios.get("https://kgsearch.googleapis.com/v1/entities:search", {
-    params: {
-      key: googleAPIKey,
-      query: fullName,
-      limit: 1
-    }
-  })
-  .then(function (response) {
-    const returnedPerson = response.data.itemListElement[0];
-    const personInfo = returnedPerson ? returnedPerson.result : {};
-
-    console.log(personInfo);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-};
-
+/* To keep this simple, and because there are no UI filters
+   all the data we pull will be for the previous 2018-2019 season */
 export const getNBAPlayer = (fullName, onFinish) => {
   axios.get(`${nbaAPIEndpoint}/players`, {
     params: {
@@ -43,16 +25,32 @@ export const getNBAPlayer = (fullName, onFinish) => {
   });
 };
 
-export const getNBAPlayerStats = (playerID) => {
-  axios.get(`${nbaAPIEndpoint}/season_averages`, {
+export const getKnowledgeGraphData = (fullName) => {
+  return axios.get("https://kgsearch.googleapis.com/v1/entities:search", {
     params: {
-      player_ids: [playerID]
+      key: googleAPIKey,
+      query: fullName,
+      limit: 1
     }
-  })
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
+  });
+};
+
+export const getNBAPlayerStats = (playerID) => {
+  return axios.get(`${nbaAPIEndpoint}/season_averages`, {
+    params: {
+      player_ids: [playerID],
+      seasons: [2018]
+    }
+  });
+};
+
+export const getNBATeamGames = (teamID) => {
+  return axios.get(`${nbaAPIEndpoint}/games`, {
+    params: {
+      team_ids: [teamID],
+      per_page: 100,
+      postseason: false,
+      seasons: [2018]
+    }
   });
 };

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import { FaSearch, FaExclamationCircle, FaUser, FaPlus } from "react-icons/fa";
 import { Input, Button } from "../components";
 import { searchAthlete, addAthlete } from "../state/actions/athletes.action";
+import { addTeam } from "../state/actions/teams.action";
 
 import "./styles/add-athlete.scss";
 
@@ -16,6 +17,7 @@ class AddAthletePage extends Component {
     this.onSearch = this.onSearch.bind(this);
     this.searchComplete = this.searchComplete.bind(this);
     this.renderResults = this.renderResults.bind(this);
+    this.onAdd = this.onAdd.bind(this);
 
     this.state = {
       searchValue: "",
@@ -51,6 +53,11 @@ class AddAthletePage extends Component {
     });
   }
 
+  onAdd() {
+    this.props.addAthlete(this.state.foundAthlete);
+    this.props.addTeam(this.state.foundAthlete.team);
+  }
+
   renderResults() {
     const athlete = this.state.foundAthlete;
 
@@ -67,7 +74,11 @@ class AddAthletePage extends Component {
             </div>
             <div className="athlete-found__info">
               <h4 className="athlete-found__title">{name} - {team}</h4>
-              <Button variant="outline" text="Add Athlete to Menu" onClick={this.props.addAthlete}>
+              <Button
+                variant="outline"
+                text="Add Athlete to Menu"
+                onClick={this.onAdd}
+              >
                 <FaPlus className="athlete-found__plus-icon"/>
               </Button>
             </div>
@@ -115,6 +126,7 @@ class AddAthletePage extends Component {
 
 AddAthletePage.propTypes = {
   addAthlete: PropTypes.func,
-}
+  addTeam: PropTypes.func
+};
 
-export default connect(null, { addAthlete })(AddAthletePage);
+export default connect(null, { addAthlete, addTeam })(AddAthletePage);

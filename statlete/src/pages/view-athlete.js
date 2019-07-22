@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { FaChartBar, FaBook, FaChartPie, FaTwitter } from "react-icons/fa";
 import ReactHighcharts from "react-highcharts";
@@ -100,6 +101,11 @@ class ViewAthletePage extends Component {
   }
 }
 
+const mapStateToProps = ({ athletes, teams }) => {
+  return {
+  };
+};
+
 ViewAthletePage.defaultProps = {
   playerName: "Player Name"
 };
@@ -108,4 +114,4 @@ ViewAthletePage.propTypes = {
   playerName: PropTypes.string
 };
 
-export default ViewAthletePage;
+export default connect(mapStateToProps)(ViewAthletePage);
