@@ -33,7 +33,7 @@ class ViewAthletePage extends Component {
 
   getAthleteStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig} />,
+      <ReactHighcharts key="season-averages-" config={seasonAveragesBarConfig} />,
       <ReactHighcharts key="play-time" config={fieldGoalScatterConfig} />
     ];
 
@@ -42,11 +42,23 @@ class ViewAthletePage extends Component {
 
   getTeamStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts key="wins-losses" config={winsLossesPieConfig(this.props.games)} />,
+      <ReactHighcharts key="wins-losses" config={winsLossesPieConfig(this.props.games, this.props.selectedTeamID)} />,
       <ReactHighcharts key="scoring" config={scoringPieConfig} />
     ];
 
     return graphs[index];
+  }
+
+  getAthleteStatsTitle(index) {
+    const titles = ["2018-19 Season Averages", "2018-19 FG %"];
+
+    return titles[index];
+  }
+
+  getTeamStatsTitle(index) {
+    const titles = ["2018-19 Wins vs Losses", "2018-19 Scoring"];
+
+    return titles[index];
   }
 
   render() {
@@ -62,7 +74,7 @@ class ViewAthletePage extends Component {
             leftHeaderContent={<FaChartBar className="header-icon"/>}
             rightHeaderContent={<StatArrows onClick={this.updateAthleteStatsIndex} statsLength={2} currentIndex={athleteStatsIndex}/>}
             title={athleteName}
-            subTitle="Stat"
+            subTitle={this.getAthleteStatsTitle(athleteStatsIndex)}
           >
             {this.getAthleteStatsGraph(athleteStatsIndex)}
           </DataContainer>
@@ -71,9 +83,9 @@ class ViewAthletePage extends Component {
             leftHeaderContent={<FaChartPie className="header-icon"/>}
             rightHeaderContent={<StatArrows onClick={this.updateTeamStatsIndex} statsLength={2} currentIndex={teamStatsIndex}/>}
             title={teamName}
-            subTitle="Stat"
+            subTitle={this.getTeamStatsTitle(teamStatsIndex)}
           >
-            {this.getTeamStatsGraph(this.state.teamStatsIndex)}
+            {this.getTeamStatsGraph(teamStatsIndex)}
           </DataContainer>
         </div>
         <div className="row">
@@ -114,10 +126,14 @@ class ViewAthletePage extends Component {
 }
 
 const mapStateToProps = ({ athletes, teams }) => {
-  const athlete = athletes[athletes.selectedAthleteID] || {};
-  const team = teams[teams.selectedTeamID] || {};
+  const selectedAthleteID = athletes.selectedAthleteID;
+  const selectedTeamID = athletes.selectedTeamID;
+  const athlete = athletes[selectedAthleteID] || {};
+  const team = teams[selectedTeamID] || {};
 
   return {
+    selectedAthleteID,
+    selectedTeamID,
     athleteName: athlete.name,
     teamName: team.fullName,
     seasonStats: athlete.seasonStats,
@@ -139,6 +155,8 @@ ViewAthletePage.defaultProps = {
 };
 
 ViewAthletePage.propTypes = {
+  selectedAthleteID: PropTypes.string,
+  selectedTeamID: PropTypes.string,
   athleteName: PropTypes.string,
   teamName: PropTypes.string,
   seasonStats: PropTypes.object,
