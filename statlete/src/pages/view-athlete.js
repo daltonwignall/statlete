@@ -113,11 +113,9 @@ class ViewAthletePage extends Component {
   }
 }
 
-const mapStateToProps = ({ athletes, teams, selectedAthleteID = 237, selectedTeamID = 14 }) => {
-  const athlete = athletes[selectedAthleteID] || {};
-  const team = teams[selectedTeamID] || {};
-
-  console.log(athlete, team);
+const mapStateToProps = ({ athletes, teams }) => {
+  const athlete = athletes[athletes.selectedAthleteID] || {};
+  const team = teams[teams.selectedTeamID] || {};
 
   return {
     athleteName: athlete.name,
@@ -126,7 +124,7 @@ const mapStateToProps = ({ athletes, teams, selectedAthleteID = 237, selectedTea
     gameStats: athlete.gameStats,
     games: team.games,
     description: athlete.detailedDescription && athlete.detailedDescription.articleBody,
-    height: `${athlete.heightFeet}' ${athlete.heightInches}"`,
+    height: athlete.heightFeet && athlete.heightFeet ? `${athlete.heightFeet}' ${athlete.heightInches}"` : "???",
     weight: athlete.weight,
     position: athlete.position,
     imagePath: athlete.image && athlete.image.contentUrl,

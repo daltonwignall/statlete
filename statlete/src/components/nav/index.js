@@ -10,13 +10,17 @@ import "./styles.scss";
 const Nav = ({ className, navItems }) => {
   const classes = classNames("nav", className);
   const navItemElements = navItems.map((navItem, index) => {
-    const { title, imagePath } = navItem;
+    const { title, imagePath, selected, onClick, athleteID, teamID } = navItem;
 
     return (
       <NavItem
         key={`${index}-${title}`}
         title={title}
         imagePath={imagePath}
+        selected={selected}
+        onClick={onClick}
+        athleteID={athleteID}
+        teamID={teamID}
       />
     );
   });

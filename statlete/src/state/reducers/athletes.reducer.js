@@ -1,6 +1,6 @@
 import INITIAL_STATE from "./initial-state";
 import { ADD_ATHLETE, ADD_ATHLETE_GENERAL,
-  ADD_ATHLETE_SEASON_STATS, ADD_ATHLETE_GAME_STATS } from "../actions/athletes.action";
+  ADD_ATHLETE_SEASON_STATS, ADD_ATHLETE_GAME_STATS, SELECT_ATHLETE } from "../actions/athletes.action";
 import { keysToCamel } from "../../helpers/shared-functions";
 
 export default function (athletes = INITIAL_STATE.athletes, action) {
@@ -15,6 +15,8 @@ export default function (athletes = INITIAL_STATE.athletes, action) {
         return mapAthleteSeasonStatsData(athletes, data.athleteID, data.seasonStats);
       case ADD_ATHLETE_GAME_STATS:
         return mapAthleteGameStatsData(athletes, data.athleteID, data.gameStats);
+      case SELECT_ATHLETE:
+        return mapSelectedAthlete(athletes, data.athleteID);
       default:
           return athletes;
   }
@@ -75,5 +77,12 @@ const mapAthleteGameStatsData = (athletes, athleteID, gameStats) => {
     [athleteID]: {
       ...updatedAthlete
     }
+  };
+};
+
+const mapSelectedAthlete = (athletes, athleteID) => {
+  return {
+    ...athletes,
+    selectedAthleteID: athleteID
   };
 };

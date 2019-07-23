@@ -2,6 +2,7 @@ import { getNBATeamGames } from "../../helpers/api-requests";
 
 export const ADD_TEAM = "ADD_TEAM";
 export const ADD_TEAM_GAMES = "ADD_TEAM_GAMES";
+export const SELECT_TEAM = "SELECT_TEAM";
 
 export const addTeam = (team) => {
   const teamID = team.id;
@@ -21,5 +22,13 @@ export const addTeam = (team) => {
       console.log(error);
     });
 
+  };
+};
+
+export const selectTeam = (teamID) => {
+  return dispatch => {
+    console.log("dispatching");
+    const payload = { teamID };
+    dispatch({ type: SELECT_TEAM, payload });
   };
 };

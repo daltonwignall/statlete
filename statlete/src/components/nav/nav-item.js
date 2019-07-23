@@ -1,23 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-const NavItem = ({ title, imagePath }) => (
-  <Link to="/view-athlete" className="nav__link">
-    <li className="nav__item">
-      <img className="nav__item__image" src="https://i.dailymail.co.uk/i/pix/2015/04/26/00/2800DADF00000578-3055692-image-a-20_1430006228344.jpg" alt={title} />
-      <span className="nav__item__title">{title}</span>
-    </li>
-  </Link>
-);
+const NavItem = ({ title, imagePath, selected, onClick, athleteID, teamID }) => {
+  const classes = classNames("nav__item", {
+    "nav__item--selected": selected
+  });
+
+  const handleClick = () => {
+    onClick(athleteID, teamID);
+  };
+
+  return (
+    <Link to="/view-athlete" className="nav__link" onClick={handleClick}>
+      <li className={classes}>
+        <img className="nav__item__image" src={imagePath} alt={title} />
+        <span className="nav__item__title">{title}</span>
+      </li>
+    </Link>
+  )
+};
 
 NavItem.propTypes = {
   title: PropTypes.string,
   imagePath: PropTypes.string,
-};
-
-NavItem.defaultProps = {
+  selected: PropTypes.bool,
+  onClick: PropTypes.func,
+  athleteID: PropTypes.string,
+  teamID: PropTypes.number,
 };
 
 export default NavItem;

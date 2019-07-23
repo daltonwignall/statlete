@@ -4,6 +4,7 @@ export const ADD_ATHLETE = "ADD_ATHLETE";
 export const ADD_ATHLETE_GENERAL = "ADD_ATHLETE_GENERAL";
 export const ADD_ATHLETE_SEASON_STATS = "ADD_ATHLETE_SEASON_STATS";
 export const ADD_ATHLETE_GAME_STATS = "ADD_ATHLETE_GAME_STATS";
+export const SELECT_ATHLETE = "SELECT_ATHLETE";
 
 export const searchAthlete = ((fullName, onFinish) => {
   return getNBAPlayer(fullName, onFinish);
@@ -49,5 +50,12 @@ export const addAthlete = (athlete) => {
     .catch(function (error) {
       console.log(error);
     });
+  };
+};
+
+export const selectAthlete = (athleteID) => {
+  return dispatch => {
+    const payload = { athleteID };
+    dispatch({ type: SELECT_ATHLETE, payload });
   };
 };

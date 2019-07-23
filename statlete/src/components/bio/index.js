@@ -44,10 +44,10 @@ Bio.propTypes = {
 Bio.defaultProps = {
   name: "Player Name",
   description: "This guy is a professional basketball player!",
-  height: "6' 8\"",
-  weight: "250",
-  position: "F",
-  teamName: "Los Angeles Lakers",
+  height: "???",
+  weight: "???",
+  position: "???",
+  teamName: "???",
   imagePath: "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png",
 };
 

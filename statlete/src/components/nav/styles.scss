@@ -73,7 +73,7 @@
       color: white;
     }
 
-    &:hover {
+    &:hover, &--selected {
       cursor: pointer;
       background-color: $aqua-dark;
     }
