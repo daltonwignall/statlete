@@ -42,15 +42,13 @@ Bio.propTypes = {
 };
 
 Bio.defaultProps = {
-  name: "LeBron James",
-  description: "LeBron Raymone James Sr. is an American professional basketball player for the Los Angeles Lakers of the National Basketball Association. ",
+  name: "Player Name",
+  description: "This guy is a professional basketball player!",
   height: "6' 8\"",
   weight: "250",
   position: "F",
   teamName: "Los Angeles Lakers",
-  imagePath: "http://t3.gstatic.com/images?q=tbn:ANd9GcQMzy_Eu9MFMgiSZJIjAgKh44vSquA3BEQka1MHYxnh_NrnW9fA",
-  wikiLink: "https://en.wikipedia.org/wiki/LeBron_James",
-  websiteLink: "http://www.lebronjames.com",
+  imagePath: "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png",
 };
 
 export default Bio;

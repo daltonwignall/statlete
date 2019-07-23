@@ -14,24 +14,24 @@ class ViewAthletePage extends Component {
   constructor(props) {
     super(props);
 
-    this.updatePlayerStatsIndex = this.updatePlayerStatsIndex.bind(this);
+    this.updateAthleteStatsIndex = this.updateAthleteStatsIndex.bind(this);
     this.updateTeamStatsIndex = this.updateTeamStatsIndex.bind(this);
 
     this.state = {
-      playerStatsIndex: 0,
+      athleteStatsIndex: 0,
       teamStatsIndex: 0,
     };
   }
   
-  updatePlayerStatsIndex(index) {
-    this.setState({ playerStatsIndex: index });
+  updateAthleteStatsIndex(index) {
+    this.setState({ athleteStatsIndex: index });
   }
 
   updateTeamStatsIndex(index) {
     this.setState({ teamStatsIndex: index });
   }
 
-  getPlayerStatsGraph(index) {
+  getAthleteStatsGraph(index) {
     const graphs = [
       <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig} />,
       <ReactHighcharts key="play-time" config={playTimeScatterConfig} />
@@ -50,26 +50,27 @@ class ViewAthletePage extends Component {
   }
 
   render() {
-    const { playerName } = this.props;
-    const { playerStatsIndex, teamStatsIndex } = this.state;
+    const { athleteName, description, height, weight, position, teamName,
+      imagePath, wikiLink, websiteLink } = this.props;
+    const { athleteStatsIndex, teamStatsIndex } = this.state;
 
     return (
       <div className="view-athlete">
         <div className="row">
           <DataContainer
-            className="player-stats-container"
+            className="athlete-stats-container"
             leftHeaderContent={<FaChartBar className="header-icon"/>}
-            rightHeaderContent={<StatArrows onClick={this.updatePlayerStatsIndex} statsLength={2} currentIndex={playerStatsIndex}/>}
-            title={playerName}
+            rightHeaderContent={<StatArrows onClick={this.updateAthleteStatsIndex} statsLength={2} currentIndex={athleteStatsIndex}/>}
+            title={athleteName}
             subTitle="Stat"
           >
-            {this.getPlayerStatsGraph(playerStatsIndex)}
+            {this.getAthleteStatsGraph(athleteStatsIndex)}
           </DataContainer>
           <DataContainer
             className="team-stats-container"
             leftHeaderContent={<FaChartPie className="header-icon"/>}
             rightHeaderContent={<StatArrows onClick={this.updateTeamStatsIndex} statsLength={2} currentIndex={teamStatsIndex}/>}
-            title="Team Name"
+            title={teamName}
             subTitle="Stat"
           >
             {this.getTeamStatsGraph(this.state.teamStatsIndex)}
@@ -79,10 +80,20 @@ class ViewAthletePage extends Component {
           <DataContainer
             className="about-container"
             leftHeaderContent={<FaBook className="header-icon"/>}
-            title={playerName}
+            title={athleteName}
             subTitle="Bio"
           >
-            <Bio></Bio>
+            <Bio
+              name={athleteName}
+              description={description}
+              height={height}
+              weight={weight}
+              position={position}
+              teamName={teamName}
+              imagePath={imagePath}
+              wikiLink={wikiLink}
+              websiteLink={websiteLink}
+            />
           </DataContainer>
           <DataContainer
             className="social-container"
@@ -102,19 +113,43 @@ class ViewAthletePage extends Component {
   }
 }
 
-const mapStateToProps = ({ athletes, teams }) => {
-  console.log(teams, athletes);
+const mapStateToProps = ({ athletes, teams, selectedAthleteID = 237, selectedTeamID = 14 }) => {
+  const athlete = athletes[selectedAthleteID] || {};
+  const team = teams[selectedTeamID] || {};
+
+  console.log(athlete, team);
 
   return {
+    athleteName: athlete.name,
+    teamName: team.fullName,
+    seasonStats: athlete.seasonStats,
+    gameStats: athlete.gameStats,
+    games: team.games,
+    description: athlete.detailedDescription && athlete.detailedDescription.articleBody,
+    height: `${athlete.heightFeet}' ${athlete.heightInches}"`,
+    weight: athlete.weight,
+    position: athlete.position,
+    imagePath: athlete.image && athlete.image.contentUrl,
+    wikiLink: athlete.detailedDescription && athlete.detailedDescription.url,
+    websiteLink: athlete.url,
   };
 };
 
 ViewAthletePage.defaultProps = {
-  playerName: "Player Name"
+  athleteName: "Athlete Name",
+  teamName: "Team Name"
 };
 
 ViewAthletePage.propTypes = {
-  playerName: PropTypes.string
+  athleteName: PropTypes.string,
+  description: PropTypes.string,
+  height: PropTypes.string,
+  weight: PropTypes.string,
+  position: PropTypes.string,
+  teamName: PropTypes.string,
+  imagePath: PropTypes.string,
+  wikiLink: PropTypes.string,
+  websiteLink: PropTypes.string,
 };
 
 export default connect(mapStateToProps)(ViewAthletePage);
