@@ -20,7 +20,7 @@ const NavItem = ({ title, imagePath, selected, onClick, athleteID, teamID }) => 
         <span className="nav__item__title">{title}</span>
       </li>
     </Link>
-  )
+  );
 };
 
 NavItem.propTypes = {
