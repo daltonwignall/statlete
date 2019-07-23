@@ -43,7 +43,7 @@ class ViewAthletePage extends Component {
   getTeamStatsGraph(index) {
     const graphs = [
       <ReactHighcharts key="wins-losses" config={winsLossesPieConfig(this.props.games, this.props.selectedTeamID)} />,
-      <ReactHighcharts key="scoring" config={scoringPieConfig} />
+      <ReactHighcharts key="scoring" config={scoringPieConfig(this.props.games, this.props.selectedTeamID)} />
     ];
 
     return graphs[index];
@@ -56,7 +56,7 @@ class ViewAthletePage extends Component {
   }
 
   getTeamStatsTitle(index) {
-    const titles = ["2018-19 Wins vs Losses", "2018-19 Scoring"];
+    const titles = ["2018-19 Wins vs Losses", "2018-19 PPG"];
 
     return titles[index];
   }
@@ -127,7 +127,7 @@ class ViewAthletePage extends Component {
 
 const mapStateToProps = ({ athletes, teams }) => {
   const selectedAthleteID = athletes.selectedAthleteID;
-  const selectedTeamID = athletes.selectedTeamID;
+  const selectedTeamID = teams.selectedTeamID;
   const athlete = athletes[selectedAthleteID] || {};
   const team = teams[selectedTeamID] || {};
 
@@ -151,12 +151,13 @@ const mapStateToProps = ({ athletes, teams }) => {
 
 ViewAthletePage.defaultProps = {
   athleteName: "Athlete Name",
-  teamName: "Team Name"
+  teamName: "Team Name",
+  games: [],
 };
 
 ViewAthletePage.propTypes = {
   selectedAthleteID: PropTypes.string,
-  selectedTeamID: PropTypes.string,
+  selectedTeamID: PropTypes.number,
   athleteName: PropTypes.string,
   teamName: PropTypes.string,
   seasonStats: PropTypes.object,
