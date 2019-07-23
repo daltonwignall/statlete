@@ -1,4 +1,25 @@
-export const seasonAveragesBarConfig = {
+export const seasonAveragesBarConfig = (seasonStats) => {
+  console.log(seasonStats);
+  if (seasonStats && Object.keys(seasonStats).length) {    
+    // Sets steals
+    config.series[0].data = [seasonStats.stl];
+  
+    // Set assists
+    config.series[1].data = [seasonStats.ast];
+
+    // Sets points
+    config.series[2].data = [seasonStats.pts];
+
+    // Set rebounds
+    config.series[3].data = [seasonStats.reb];
+  
+    return config;
+  } else {
+    return {};
+  }
+};
+
+export const config = {
   credits: {
     enabled: false
   },
@@ -41,22 +62,18 @@ export const seasonAveragesBarConfig = {
   series: [
     {
       name: "Steals",
-      data: [6],
       color: "#00AECA"
     },
     {
       name: "Assists",
-      data: [14],
       color: "#66FCF1"
     },
     {
       name: "Points",
-      data: [20],
       color: "#1F2833"
     },
     {
       name: "Rebounds",
-      data: [11],
       color: "#45A29E"
     }
   ],

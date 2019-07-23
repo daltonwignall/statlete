@@ -33,8 +33,8 @@ class ViewAthletePage extends Component {
 
   getAthleteStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts key="season-averages-" config={seasonAveragesBarConfig} />,
-      <ReactHighcharts key="play-time" config={fieldGoalScatterConfig} />
+      <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig(this.props.seasonStats)} />,
+      <ReactHighcharts key="field-goal" config={fieldGoalScatterConfig} />
     ];
 
     return graphs[index];
