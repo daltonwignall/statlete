@@ -125,7 +125,7 @@ const mapStateToProps = ({ athletes, teams }) => {
     games: team.games,
     description: athlete.detailedDescription && athlete.detailedDescription.articleBody,
     height: athlete.heightFeet && athlete.heightFeet ? `${athlete.heightFeet}' ${athlete.heightInches}"` : "???",
-    weight: athlete.weight,
+    weight: athlete.weightPounds,
     position: athlete.position,
     imagePath: athlete.image && athlete.image.contentUrl,
     wikiLink: athlete.detailedDescription && athlete.detailedDescription.url,
