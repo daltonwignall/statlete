@@ -5,6 +5,8 @@ Sports statistics platform for finding instant stats on your favorite athletes!
 ## Summary
 This platform was created as a way to aggregate information about athletes. With a focus on stats. This is a micro proof of concept of a moonshot idea. The intention is to make it easy to learn more information about your favorite athletes within seconds!
 
+**Note:** The player stats only pull for nba players who were active within the 2018-2019 season. This was an intentional decision to keep the scope possible. Filtering for other seasons/years could definitely be added in the future though!
+
 ## Setup
 ```bash
 cd statlete
