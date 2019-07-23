@@ -1,5 +1,4 @@
 export const seasonAveragesBarConfig = (seasonStats) => {
-  console.log(seasonStats);
   if (seasonStats && Object.keys(seasonStats).length) {    
     // Sets steals
     config.series[0].data = [seasonStats.stl];

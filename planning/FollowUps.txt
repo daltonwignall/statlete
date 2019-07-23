@@ -1,4 +1,5 @@
 Write tests!!!
+I couldn't get the date display for the scatter plot to work properly, so I just ended up using the game #, which is slightly less useful imo.
 Validation capabablities on input component
 absolute paths within .scss files
 Local storage for basic application state

@@ -34,7 +34,7 @@ class ViewAthletePage extends Component {
   getAthleteStatsGraph(index) {
     const graphs = [
       <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig(this.props.seasonStats)} />,
-      <ReactHighcharts key="field-goal" config={fieldGoalScatterConfig} />
+      <ReactHighcharts key="field-goal" config={fieldGoalScatterConfig(this.props.seasonStats, this.props.gameStats)} />
     ];
 
     return graphs[index];
@@ -56,7 +56,7 @@ class ViewAthletePage extends Component {
   }
 
   getTeamStatsTitle(index) {
-    const titles = ["2018-19 Wins vs Losses", "2018-19 PPG"];
+    const titles = ["2018-19 Wins/Losses", "2018-19 PPG"];
 
     return titles[index];
   }

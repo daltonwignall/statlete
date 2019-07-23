@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { getNBAPlayer, getNBAPlayerSeasonStats, getNBAPlayerGameStats, getKnowledgeGraphData } from "../../helpers/api-requests";
 
 export const ADD_ATHLETE = "ADD_ATHLETE";

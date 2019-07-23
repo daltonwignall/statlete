@@ -1,4 +1,32 @@
-export const fieldGoalScatterConfig = {
+export const fieldGoalScatterConfig = (seasonStats, gameStats) => {
+  if (seasonStats && gameStats && gameStats.length && Object.keys(seasonStats).length) {
+    const dates = getGamesFGAndDate(gameStats);
+    
+    // Sets season average FG %
+    config.series[0].data = [[dates[0][0], seasonStats.fgPct], [dates[gameStats.length-1][0], seasonStats.fgPct]];
+  
+    // Sets game FG %'s
+    config.series[1].data = [...dates];
+  
+    return config;
+  } else {
+    return {};
+  }
+};
+
+const getGamesFGAndDate = (gameStats) => {
+  let datesArray = gameStats.map((game, index) => {
+    const fgPct = game.fgPct > 1 ? game.fgPct/100 : game.fgPct;
+
+    return [index, fgPct];
+  });
+
+  datesArray = datesArray.sort((game1, game2) => game1[0]-game2[0]);
+
+  return datesArray;
+};
+
+export const config = {
   credits: {
     enabled: false
   },
@@ -15,7 +43,7 @@ export const fieldGoalScatterConfig = {
  xAxis: {
    title: {
      enabled: true,
-     text: "Game Date",
+     text: "Game #",
      style: {
       fontSize: "14px"
      }
@@ -25,10 +53,6 @@ export const fieldGoalScatterConfig = {
      fontSize: "14px",
     },
    },
-   tickInterval: 1,
-   startOnTick: true,
-   endOnTick: true,
-   showLastLabel: true
  },
  yAxis: {
    title: {
@@ -63,20 +87,18 @@ export const fieldGoalScatterConfig = {
      },
      tooltip: {
        headerFormat: "<b>{series.name}</b><br>",
-       pointFormat: "{point.x}: {point.y} minutes"
+       pointFormat: "{point.x}: {point.y:.2f}%"
      }
    }
  },
  series: [
   {
     type: "line",
-    name: "FG % Average",
-    data: [[1, 36], [5, 36]],
+    name: "FG % Average For Season",
   },
   {
-   showInLegend: false,
-   name: "Playing Time",
+   showInLegend: true,
+   name: "FG % Average Per Game",
    color: "#66FCF1",
-   data: [[1,38], [2, 45], [3, 20], [4, 42], [5, 39]],
  }]
 };
