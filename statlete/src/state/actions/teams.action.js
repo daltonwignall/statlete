@@ -11,7 +11,11 @@ export const addTeam = (team) => {
 
     // Get the games from the current season for the passed team
     getNBATeamGames(teamID).then((response) => {
-      dispatch({ type: ADD_TEAM_GAMES, payload: response.data.data });
+      const payload = {
+        games: response.data.data,
+        teamID
+      };
+      dispatch({ type: ADD_TEAM_GAMES, payload });
     })
     .catch(function (error) {
       console.log(error);

@@ -35,10 +35,20 @@ export const getKnowledgeGraphData = (fullName) => {
   });
 };
 
-export const getNBAPlayerStats = (playerID) => {
+export const getNBAPlayerSeasonStats = (playerID) => {
   return axios.get(`${nbaAPIEndpoint}/season_averages`, {
     params: {
       player_ids: [playerID],
+      seasons: [2018]
+    }
+  });
+};
+
+export const getNBAPlayerGameStats = (playerID) => {
+  return axios.get(`${nbaAPIEndpoint}/stats`, {
+    params: {
+      player_ids: [playerID],
+      per_page: 100,
       seasons: [2018]
     }
   });

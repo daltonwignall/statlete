@@ -103,7 +103,7 @@ class ViewAthletePage extends Component {
 }
 
 const mapStateToProps = ({ athletes, teams }) => {
-  console.log(teams);
+  console.log(teams, athletes);
 
   return {
   };

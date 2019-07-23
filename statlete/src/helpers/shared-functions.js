@@ -7,7 +7,11 @@ export const toCamel = (string) => {
 };
 
 export const keysToCamel = function (data) {
-  if (typeof(data) === "object") {
+  if (Array.isArray(data)) {
+    return data.map((value) => {
+      return keysToCamel(value);
+    });
+  } else if (typeof(data) === "object") {
     const newObj = {};
 
     Object.keys(data)
@@ -16,10 +20,6 @@ export const keysToCamel = function (data) {
       });
 
     return newObj;
-  } else if (Array.isArray(data)) {
-    return data.map((value) => {
-      return keysToCamel(value);
-    });
   }
 
   return data;

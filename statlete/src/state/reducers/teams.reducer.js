@@ -3,14 +3,14 @@ import { ADD_TEAM, ADD_TEAM_GAMES } from "../actions/teams.action";
 import { keysToCamel } from "../../helpers/shared-functions";
 
 export default function (teams = INITIAL_STATE.teams, action) {
-  const data = action.payload && action.payload;
+  const data = action.payload || {};
 
   switch (action.type) {
       case ADD_TEAM: {
         return mapTeamData(teams, data);
       }
       case ADD_TEAM_GAMES: {
-        return mapTeamGames(teams, 14, data);
+        return mapTeamGames(teams, data.teamID, data.games);
       }
       default:
           return teams;
@@ -18,23 +18,27 @@ export default function (teams = INITIAL_STATE.teams, action) {
 }
 
 const mapTeamData = (teams, team) => {
-  const teamsReCased = keysToCamel(team);
+  const teamReCased = keysToCamel(team);
   return {
     ...teams,
-    ...teamsReCased
+    [team.id]: {
+      ...teamReCased
+    }
   };
 };
 
 const mapTeamGames = (teams, teamID, games) => {
   const gamesReCased = keysToCamel(games);
-  console.log(games);
+
   const updatedTeam = {
     ...teams[teamID],
-    ...gamesReCased
+    games: gamesReCased,
   };
 
   return {
     ...teams,
-    ...updatedTeam
+    [teamID]: {
+      ...updatedTeam
+    }
   };
 };
