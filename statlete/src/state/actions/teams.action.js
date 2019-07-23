@@ -27,7 +27,6 @@ export const addTeam = (team) => {
 
 export const selectTeam = (teamID) => {
   return dispatch => {
-    console.log("dispatching");
     const payload = { teamID };
     dispatch({ type: SELECT_TEAM, payload });
   };

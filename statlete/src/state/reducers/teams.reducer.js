@@ -5,8 +5,6 @@ import { keysToCamel } from "../../helpers/shared-functions";
 export default function (teams = INITIAL_STATE.teams, action) {
   const data = action.payload || {};
 
-  console.log(action.type);
-
   switch (action.type) {
       case ADD_TEAM:
         return mapTeamData(teams, data);

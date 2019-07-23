@@ -42,7 +42,7 @@ class ViewAthletePage extends Component {
 
   getTeamStatsGraph(index) {
     const graphs = [
-      <ReactHighcharts key="wins-losses" config={winsLossesPieConfig} />,
+      <ReactHighcharts key="wins-losses" config={winsLossesPieConfig(this.props.games)} />,
       <ReactHighcharts key="scoring" config={scoringPieConfig} />
     ];
 
@@ -140,11 +140,14 @@ ViewAthletePage.defaultProps = {
 
 ViewAthletePage.propTypes = {
   athleteName: PropTypes.string,
+  teamName: PropTypes.string,
+  seasonStats: PropTypes.object,
+  gameStats: PropTypes.array,
+  games: PropTypes.array,
   description: PropTypes.string,
   height: PropTypes.string,
-  weight: PropTypes.string,
+  weight:  PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   position: PropTypes.string,
-  teamName: PropTypes.string,
   imagePath: PropTypes.string,
   wikiLink: PropTypes.string,
   websiteLink: PropTypes.string,

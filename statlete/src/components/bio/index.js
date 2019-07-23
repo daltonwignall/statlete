@@ -33,7 +33,7 @@ Bio.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   height: PropTypes.string,
-  weight: PropTypes.string,
+  weight:  PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   position: PropTypes.string,
   teamName: PropTypes.string,
   imagePath: PropTypes.string,
