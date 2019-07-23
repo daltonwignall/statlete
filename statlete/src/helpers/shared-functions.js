@@ -6,12 +6,12 @@ export const toCamel = (string) => {
   });
 };
 
-export const keysToCamel = function (data) {
+export const keysToCamel = function (data = {}) {
   if (Array.isArray(data)) {
     return data.map((value) => {
       return keysToCamel(value);
     });
-  } else if (typeof(data) === "object") {
+  } else if (typeof(data) === "object" && data !== null) {
     const newObj = {};
 
     Object.keys(data)
