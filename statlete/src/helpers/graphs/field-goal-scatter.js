@@ -1,4 +1,4 @@
-export const playTimeScatterConfig = {
+export const fieldGoalScatterConfig = {
   credits: {
     enabled: false
   },
@@ -15,7 +15,7 @@ export const playTimeScatterConfig = {
  xAxis: {
    title: {
      enabled: true,
-     text: "Game #",
+     text: "Game Date",
      style: {
       fontSize: "14px"
      }
@@ -32,7 +32,7 @@ export const playTimeScatterConfig = {
  },
  yAxis: {
    title: {
-     text: "Playing Time (Minutes)",
+     text: "FG %",
      style: {
       fontSize: "14px"
      }
@@ -70,7 +70,7 @@ export const playTimeScatterConfig = {
  series: [
   {
     type: "line",
-    name: "Regression Line",
+    name: "FG % Average",
     data: [[1, 36], [5, 36]],
   },
   {

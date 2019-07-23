@@ -5,7 +5,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { FaChartBar, FaBook, FaChartPie, FaTwitter } from "react-icons/fa";
 import ReactHighcharts from "react-highcharts";
 import { DataContainer, StatArrows, Bio } from "../components";
-import { seasonAveragesBarConfig, playTimeScatterConfig,
+import { seasonAveragesBarConfig, fieldGoalScatterConfig,
   scoringPieConfig, winsLossesPieConfig
 } from "../helpers/graphs";
 import "./styles/view-athlete.scss";
@@ -34,7 +34,7 @@ class ViewAthletePage extends Component {
   getAthleteStatsGraph(index) {
     const graphs = [
       <ReactHighcharts key="season-averages" config={seasonAveragesBarConfig} />,
-      <ReactHighcharts key="play-time" config={playTimeScatterConfig} />
+      <ReactHighcharts key="play-time" config={fieldGoalScatterConfig} />
     ];
 
     return graphs[index];
@@ -43,7 +43,7 @@ class ViewAthletePage extends Component {
   getTeamStatsGraph(index) {
     const graphs = [
       <ReactHighcharts key="wins-losses" config={winsLossesPieConfig} />,
-      <ReactHighcharts key="game-time" config={scoringPieConfig} />
+      <ReactHighcharts key="scoring" config={scoringPieConfig} />
     ];
 
     return graphs[index];
